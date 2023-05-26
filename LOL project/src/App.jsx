@@ -39,13 +39,18 @@ const App = () => {
   const a = [];
   const { isLoading, data } = useGetChampion();
 
-  const champion1 = useCreateChampion1();
+  // const champion1 = useCreateChampion1();
+  // const [click1, setClick1] = useState(false);
+  // const [click2, setClick2] = useState(false);
 
-  const champion2 = useCreateChampion2();
-  const data1 = useGetChampionDatabase1();
-  const data2 = useGetChampionDatabase2();
-  const delete_data_1 = useDeleteChampion1();
-  const delete_data_2 = useDeleteChampion2();
+  const [champion1, setChampion1] = useState([]);
+  const [champion2, setChampion2] = useState([]);
+
+  // const champion2 = useCreateChampion2();
+  // const data1 = useGetChampionDatabase1();
+  // const data2 = useGetChampionDatabase2();
+  // const delete_data_1 = useDeleteChampion1();
+  // const delete_data_2 = useDeleteChampion2();
 
   if (isLoading)
     return (
@@ -59,45 +64,54 @@ const App = () => {
       img: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${i}_0.jpg?fbclid=IwAR0C__ZgHbDwxEsy6JLGPTOB_gsZkPL8bapr1NoCgLM4bcciirBrRaW_zws`,
     });
   }
+  const x = [];
+  const handleClickRandom1 = async (e) => {
+    // if (click1 === true) {
+    //   await delete_data_1.mutate();
+    // }
 
-  const handleClickRandom1 = (e) => {
     for (let i = 0; i < 15; i++) {
       const randomNum = Math.floor(Math.random() * a.length) + 1;
-      // x.push(a[randomNum]);
-      champion1.mutate(a[randomNum]);
+      x.push(a[randomNum]);
+      // await champion1.mutate(a[randomNum]);
     }
-    // setChampion1(x);
+    setChampion1(x);
+    // setClick1(true);
   };
-  const handleClickDelete1 = (e) => {
-    delete_data_1.mutate();
-  };
-
-  const handleClickRandom2 = (e) => {
+  // const handleClickDelete1 = (e) => {
+  //   delete_data_1.mutate();
+  // };
+  const y = [];
+  const handleClickRandom2 = async (e) => {
+    // if (click2 === true) {
+    //   await delete_data_2.mutate();
+    // }
     for (let i = 0; i < 15; i++) {
       const randomNum = Math.floor(Math.random() * a.length) + 1;
-      // x.push(a[randomNum]);
-      // mutate(a[randomNum]);
-      champion2.mutate(a[randomNum]);
+      y.push(a[randomNum]);
+      // await champion2.mutate(a[randomNum]);
     }
-  };
-  const handleClickDelete2 = (e) => {
-    delete_data_2.mutate();
+    setChampion2(y);
   };
 
-  if (data1.isLoading) {
-    return (
-      <div>
-        <Skeleton />
-      </div>
-    );
-  }
-  if (data2.isLoading) {
-    return (
-      <div>
-        <Skeleton />
-      </div>
-    );
-  }
+  // const handleClickDelete2 = (e) => {
+  //   delete_data_2.mutate();
+  // };
+
+  // if (data1.isLoading) {
+  //   return (
+  //     <div>
+  //       <Skeleton />
+  //     </div>
+  //   );
+  // }
+  // if (data2.isLoading) {
+  //   return (
+  //     <div>
+  //       <Skeleton />
+  //     </div>
+  //   );
+  // }
   return (
     <Container>
       <Wrapper>
@@ -107,11 +121,8 @@ const App = () => {
               Random Champion
             </Button>
             <h1>Anh Thành </h1>
-            <Button type="primary" onClick={handleClickDelete1}>
-              Delete
-            </Button>
           </Header>
-          {data1.data.map((i) => (
+          {champion1.map((i) => (
             <Match i={i} key={i} />
           ))}
         </Row>
@@ -124,11 +135,8 @@ const App = () => {
               Random Champion
             </Button>
             <h1>Anh Tùng </h1>
-            <Button type="primary" onClick={handleClickDelete2}>
-              Delete
-            </Button>
           </Header>
-          {data2.data.map((i) => (
+          {champion2.map((i) => (
             <Match i={i} key={i} />
           ))}
         </Row>
@@ -138,3 +146,11 @@ const App = () => {
 };
 
 export default App;
+
+// <Button type="primary" onClick={handleClickDelete1}>
+// Delete
+// </Button>
+
+// <Button type="primary" onClick={handleClickDelete2}>
+// Delete
+// </Button>

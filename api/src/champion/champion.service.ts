@@ -17,8 +17,8 @@ export class ChampionService {
     const champion = this.championRepository1.create(createChampionDto);
     return this.championRepository1.save(champion);
   }
-  findAll1() {
-    return this.championRepository1.find();
+   async findAll1() {
+    return this.championRepository1.find()
   }
   remove1() {
     return this.championRepository1.clear();
@@ -27,8 +27,9 @@ export class ChampionService {
     const champion = this.championRepository2.create(createChampionDto);
     return this.championRepository2.save(champion);
   }
-  findAll2() {
-    return this.championRepository2.find();
+  async findAll2() {
+  
+    return this.championRepository2.find()
   }
   remove2() {
     return this.championRepository2.clear();
