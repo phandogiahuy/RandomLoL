@@ -5,7 +5,7 @@ export const Match = ({ i }) => {
 
   return (
     <Col span={5} style={{ padding: 5 }}>
-      <Card title={i.champion}>
+      <Card title={i.champion} style={{ padding: 5, backgroundColor: "beige" }}>
         <Image src={i.img} />
       </Card>
     </Col>

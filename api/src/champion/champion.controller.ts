@@ -1,24 +1,42 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ChampionService } from './champion.service';
 import { CreateChampionDto } from './dto/create-champion.dto';
-import { UpdateChampionDto } from './dto/update-champion.dto';
 
 @Controller('champion')
 export class ChampionController {
   constructor(private readonly championService: ChampionService) {}
 
-  @Post()
-  async create(@Body() createChampionDto: CreateChampionDto) {
-    return await this.championService.create(createChampionDto);
+  @Post('/1')
+  async create1(@Body() createChampionDto: CreateChampionDto) {
+    return await this.championService.create1(createChampionDto);
   }
 
-  @Get()
-  findAll() {
-    return this.championService.findAll();
+  @Get('/1')
+  findAll1() {
+    return this.championService.findAll1();
   }
-  @Delete()
-  remove() {
-    return this.championService.remove();
+  @Delete('/1')
+  remove1() {
+    return this.championService.remove1();
   }
-
+  @Post('/2')
+  create2(@Body() createChampionDto: CreateChampionDto) {
+    return this.championService.create2(createChampionDto);
+  }
+  @Get('/2')
+  findAll2() {
+    return this.championService.findAll2();
+  }
+  @Delete('/2')
+  remove2() {
+    return this.championService.remove2();
+  }
 }

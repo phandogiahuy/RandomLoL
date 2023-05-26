@@ -1,23 +1,36 @@
 import { Injectable } from '@nestjs/common';
 import { CreateChampionDto } from './dto/create-champion.dto';
-import { Champion } from './entities/champion.entity';
+import { Champion2 } from './entities/champion2.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Champion1 } from './entities/champion1.entity';
 
 @Injectable()
 export class ChampionService {
   constructor(
-    @InjectRepository(Champion) private championRepository: Repository<Champion>,
+    @InjectRepository(Champion1)
+    private championRepository1: Repository<Champion1>,
+    @InjectRepository(Champion2)
+    private championRepository2: Repository<Champion2>,
   ) {}
-  create(createChampionDto: CreateChampionDto) {
-    const champion = this.championRepository.create(createChampionDto);
-    console.log(createChampionDto)
-    return this.championRepository.save(champion)
+  create1(createChampionDto: CreateChampionDto) {
+    const champion = this.championRepository1.create(createChampionDto);
+    return this.championRepository1.save(champion);
   }
-  findAll() {
-    return this.championRepository.find()
+  findAll1() {
+    return this.championRepository1.find();
   }
-  remove() {
-    return this.championRepository.clear()
+  remove1() {
+    return this.championRepository1.clear();
+  }
+  create2(createChampionDto: CreateChampionDto) {
+    const champion = this.championRepository2.create(createChampionDto);
+    return this.championRepository2.save(champion);
+  }
+  findAll2() {
+    return this.championRepository2.find();
+  }
+  remove2() {
+    return this.championRepository2.clear();
   }
 }

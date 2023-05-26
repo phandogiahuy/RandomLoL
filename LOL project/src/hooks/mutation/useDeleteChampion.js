@@ -1,21 +1,19 @@
 import { useMutation, useQueryClient } from "react-query";
-
-import { message } from "antd";
-import axios from "axios";
 import {
   GET_CHAMPION_FROM_DATABASE_1,
   GET_CHAMPION_FROM_DATABASE_2,
 } from "../../constant/queryKey";
-const postChampion1 = async ({ champion, img }) => {
-  const { data } = await axios.post(`http://localhost:5000/champion/1`, {
-    champion,
-    img,
-  });
+import axios from "axios";
+import { message } from "antd";
+
+const deleteChampion1 = async () => {
+  const { data } = await axios.delete(`http://localhost:5000/champion/1`);
   return data;
 };
-const useCreateChampion1 = () => {
+const useDeleteChampion1 = () => {
   const queryClient = useQueryClient();
-  return useMutation(postChampion1, {
+
+  return useMutation(deleteChampion1, {
     onSuccess: (data) => {
       queryClient.invalidateQueries([GET_CHAMPION_FROM_DATABASE_1]);
     },
@@ -24,17 +22,14 @@ const useCreateChampion1 = () => {
     },
   });
 };
-const postChampion2 = async ({ champion, img }) => {
-  const { data } = await axios.post(`http://localhost:5000/champion/2`, {
-    champion,
-    img,
-  });
+const deleteChampion2 = async () => {
+  const { data } = await axios.delete(`http://localhost:5000/champion/2`);
   return data;
 };
-const useCreateChampion2 = () => {
+const useDeleteChampion2 = () => {
   const queryClient = useQueryClient();
 
-  return useMutation(postChampion2, {
+  return useMutation(deleteChampion2, {
     onSuccess: (data) => {
       queryClient.invalidateQueries([GET_CHAMPION_FROM_DATABASE_2]);
     },
@@ -43,4 +38,4 @@ const useCreateChampion2 = () => {
     },
   });
 };
-export { useCreateChampion1, useCreateChampion2 };
+export { useDeleteChampion1, useDeleteChampion2 };
