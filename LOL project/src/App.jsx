@@ -76,9 +76,9 @@ const App = () => {
   if (res.isSuccess) {
     h.push(res.data);
   }
-
+  let j = 0;
   for (let i in h[0]) {
-    // console.log(h[0][i].requiredAlly);
+    // console.log(j);
     if (h[0][i].depth == 4 && h[0][i].maps[12]) {
       item_depth_4.push({
         img: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${i}.png`,
@@ -92,7 +92,6 @@ const App = () => {
       });
     }
   }
-  console.log(item_depth_3, item_depth_4);
   // const h = [];
   // if (res.isLoading) {
   //   return <div>...loading</div>;
@@ -112,70 +111,35 @@ const App = () => {
       await delete_data_1.mutate();
     }
     const randomChampion_1 = [];
-    // const random_item_2 = [];
-    // const random_boost = [];
-    // while (randomChampion.length < 15) {
-    //   const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-    //   if (!numbers.includes(randomNumber)) {
-    //     numbers.push(randomNumber);
-    //     itemChamp_2.push(item_depth_3[randomNumber]);
-    //   }
-    // }
+
     while (randomChampion_1.length < 14) {
       const randomChampion = Math.floor(Math.random() * a.length);
       if (!randomChampion_1.includes(randomChampion)) {
         randomChampion_1.push(randomChampion);
-        // const numbers1 = [];
-        // const numbers2 = [];
         const finalItem = [];
-        const itemDepth3_1 = [];
-        // const itemDepth3_2 = [];
-        // const itemDepth3_3 = [];
 
-        const randomItem = Math.floor(Math.random() * item_depth_4.length);
-        // console.log(randomItem);
-        const randomBoost = Math.floor(Math.random() * boots.length);
-        // console.log(randomBoost);
-        const numbers = [];
-        // console.log(numbers);
-
-        while (numbers.length < 4) {
-          const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-          if (!numbers.includes(randomNumber)) {
-            // console.log(randomNumber);
-            numbers.push(randomNumber);
-            itemDepth3_1.push(item_depth_3[randomNumber]);
+        for (let i = 0; i < 3; i++) {
+          const randomBoost = Math.floor(Math.random() * boots.length);
+          const randomItem = Math.floor(Math.random() * item_depth_4.length);
+          let numbers = [];
+          const itemDepth3_1 = [];
+          while (numbers.length < 4) {
+            const randomNumber = Math.floor(
+              Math.random() * item_depth_3.length
+            );
+            if (!numbers.includes(randomNumber)) {
+              // console.log(randomNumber);
+              numbers.push(randomNumber);
+              itemDepth3_1.push(item_depth_3[randomNumber]);
+            }
           }
+          finalItem.push({
+            item1: item_depth_4[randomItem],
+            item2: itemDepth3_1,
+            item3: boots[randomBoost],
+          });
         }
-        finalItem.push({
-          item1: item_depth_4[randomItem],
-          item2: itemDepth3_1,
-          item3: boots[randomBoost],
-        });
-        // while (numbers1.length < 4) {
-        //   const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-        //   if (!numbers1.includes(randomNumber)) {
-        //     numbers1.push(randomNumber);
-        //     itemDepth3_2.push(item_depth_3[randomNumber]);
-        //   }
-        // }
-        // finalItem.push({
-        //   item1: item_depth_4[randomItem],
-        //   item2: itemDepth3_2,
-        //   item3: boots[randomBoost],
-        // });
-        // while (numbers2.length < 4) {
-        //   const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-        //   if (!numbers.includes(randomNumber)) {
-        //     numbers.push(randomNumber);
-        //     itemDepth3_3.push(item_depth_3[randomNumber]);
-        //   }
-        // }
-        // finalItem.push({
-        //   item1: item_depth_4[randomItem],
-        //   item2: itemDepth3_3,
-        //   item3: boots[randomBoost],
-        // });
+
         const lol_1 = {
           champion: a[randomChampion].champion,
           img: a[randomChampion].img,
@@ -185,28 +149,20 @@ const App = () => {
           item_4: finalItem[0].item2[2].img,
           item_5: finalItem[0].item2[3].img,
           item_6: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[0].item3}.png`,
+          item_7: finalItem[1].item1.img,
+          item_8: finalItem[1].item2[0].img,
+          item_9: finalItem[1].item2[1].img,
+          item_10: finalItem[1].item2[2].img,
+          item_11: finalItem[1].item2[3].img,
+          item_12: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[1].item3}.png`,
+          item_13: finalItem[2].item1.img,
+          item_14: finalItem[2].item2[0].img,
+          item_15: finalItem[2].item2[1].img,
+          item_16: finalItem[2].item2[2].img,
+          item_17: finalItem[2].item2[3].img,
+          item_18: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[2].item3}.png`,
         };
         await champion1.mutate(lol_1);
-
-        // for (let i = 0; i < 2; i++) {
-        //   const numbers = [];
-        //   const randomItem = Math.floor(Math.random() * item_depth_4.length);
-        //   const randomBoost = Math.floor(Math.random() * boots.length);
-        //   const j = [];
-        //   while (numbers.length < 4) {
-        //     const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-        //     if (!numbers.includes(randomNumber)) {
-        //       numbers.push(randomNumber);
-        //       j.push(item_depth_3[randomNumber].img);
-        //     }
-        //   }
-        //   itemRandom1.push([
-        //     item_depth_4[randomItem].img,
-        //     `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${boots[randomBoost]}.png`,
-        //     j,
-        //   ]);
-        // }
-        // console.log(finalItem);
       }
     }
     // setRandomItem1(itemRandom1);
@@ -221,38 +177,55 @@ const App = () => {
       await delete_data_2.mutate();
     }
     const randomChampion_2 = [];
-    while (randomChampion_2.length < 15) {
+    while (randomChampion_2.length < 14) {
       const random_2 = Math.floor(Math.random() * a.length);
       if (!randomChampion_2.includes(random_2)) {
         randomChampion_2.push(random_2);
-        const numbers = [];
-        const itemChamp = [];
-        const itemChamp_2 = [];
         const randomChampion = Math.floor(Math.random() * a.length);
-        const randomItem = Math.floor(Math.random() * item_depth_4.length);
-        const randomBoost = Math.floor(Math.random() * boots.length);
+        const finalItem = [];
         // console.log(randomBoost);
-        while (numbers.length < 4) {
-          const randomNumber = Math.floor(Math.random() * item_depth_3.length);
-          if (!numbers.includes(randomNumber)) {
-            numbers.push(randomNumber);
-            itemChamp_2.push(item_depth_3[randomNumber]);
+        for (let i = 0; i < 3; i++) {
+          const randomBoost = Math.floor(Math.random() * boots.length);
+          const randomItem = Math.floor(Math.random() * item_depth_4.length);
+          let numbers = [];
+          const itemDepth3_1 = [];
+          while (numbers.length < 4) {
+            const randomNumber = Math.floor(
+              Math.random() * item_depth_3.length
+            );
+            if (!numbers.includes(randomNumber)) {
+              // console.log(randomNumber);
+              numbers.push(randomNumber);
+              itemDepth3_1.push(item_depth_3[randomNumber]);
+            }
           }
+          finalItem.push({
+            item1: item_depth_4[randomItem],
+            item2: itemDepth3_1,
+            item3: boots[randomBoost],
+          });
         }
-        itemChamp.push({
-          item1: item_depth_4[randomItem],
-          item2: itemChamp_2,
-          item3: boots[randomBoost],
-        });
         const lol_2 = {
-          champion: a[randomChampion].champion,
-          img: a[randomChampion].img,
-          item_1: itemChamp[0].item1.img,
-          item_2: itemChamp[0].item2[0].img,
-          item_3: itemChamp[0].item2[1].img,
-          item_4: itemChamp[0].item2[2].img,
-          item_5: itemChamp[0].item2[3].img,
-          item_6: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${itemChamp[0].item3}.png`,
+          champion: a[random_2].champion,
+          img: a[random_2].img,
+          item_1: finalItem[0].item1.img,
+          item_2: finalItem[0].item2[0].img,
+          item_3: finalItem[0].item2[1].img,
+          item_4: finalItem[0].item2[2].img,
+          item_5: finalItem[0].item2[3].img,
+          item_6: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[0].item3}.png`,
+          item_7: finalItem[1].item1.img,
+          item_8: finalItem[1].item2[0].img,
+          item_9: finalItem[1].item2[1].img,
+          item_10: finalItem[1].item2[2].img,
+          item_11: finalItem[1].item2[3].img,
+          item_12: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[1].item3}.png`,
+          item_13: finalItem[2].item1.img,
+          item_14: finalItem[2].item2[0].img,
+          item_15: finalItem[2].item2[1].img,
+          item_16: finalItem[2].item2[2].img,
+          item_17: finalItem[2].item2[3].img,
+          item_18: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${finalItem[2].item3}.png`,
         };
         await champion2.mutate(lol_2);
       }
@@ -314,9 +287,9 @@ const App = () => {
               Delete
             </Button>
           </Header>
-          {data1.data.map((i) => (
-            <Match i={i} key={i.id} />
-          ))}
+
+          {data1.data.length > 0 &&
+            data1.data.map((i) => <Match i={i} key={i.id} />)}
         </Row>
       </Wrapper>
       <div style={{ flex: 1, backgroundColor: "black" }}></div>
@@ -331,9 +304,8 @@ const App = () => {
               Delete
             </Button>
           </Header>
-          {data2.data.map((i) => (
-            <Match i={i} key={i.id} />
-          ))}
+          {data2.data.length > 0 &&
+            data2.data.map((i) => <Match i={i} key={i.id} />)}
         </Row>
       </Wrapper>
     </Container>

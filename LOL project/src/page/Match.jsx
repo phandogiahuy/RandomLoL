@@ -4,15 +4,23 @@ export const Match = ({ i }) => {
   // const players = Array.from({ length: 10 }, (_, i) => `Player ${i + 1}`);
 
   return (
-    <Col span={12} style={{ padding: 5, display: "flex" }}>
+    <Col
+      span={12}
+      style={{
+        padding: 5,
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "20px",
+      }}
+    >
       <div style={{ width: "40%" }}>
-        <Image src={i.img} style={{ width: "100%", height: "100%" }} />
+        <img src={i.img} style={{ width: "100%", height: "100%" }} />
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "60%",
+          width: "50%",
           marginLeft: "5px",
         }}
       >
@@ -39,7 +47,60 @@ export const Match = ({ i }) => {
           />
           <img
             src={i.item_6}
-            style={{ width: "25%", height: "60%", padding: "5px" }}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+        </div>
+        <div style={{ display: "flex", width: "100%" }}>
+          <img
+            src={i.item_7}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_8}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_9}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_10}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_11}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_12}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+        </div>
+
+        <div style={{ display: "flex", width: "100%" }}>
+          <img
+            src={i.item_13}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_14}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_15}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_16}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_17}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
+          />
+          <img
+            src={i.item_18}
+            style={{ width: "25%", height: "60%", padding: "2px" }}
           />
         </div>
       </div>
@@ -56,20 +117,3 @@ export const Match = ({ i }) => {
 //     </Card>
 //   </Col>
 // </Row>
-// <div style={{ display: "flex", width: "100%" }}>
-// <img src={i.order[0][0]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[0][2][0]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[0][2][1]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[0][2][2]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[0][2][3]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[0][1]} style={{ width: "25%", height: "60%" }} />
-// </div>
-
-// <div style={{ display: "flex", width: "100%" }}>
-// <img src={i.order[1][0]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[1][2][0]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[1][2][1]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[1][2][2]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[1][2][3]} style={{ width: "25%", height: "60%" }} />
-// <img src={i.order[1][1]} style={{ width: "25%", height: "60%" }} />
-// </div>

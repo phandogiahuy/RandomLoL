@@ -5,7 +5,6 @@ export class Champion2 {
   id: number;
   @Column()
   champion: string;
-
   @Column()
   img: string;
   @Column()
