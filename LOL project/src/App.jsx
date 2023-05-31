@@ -76,16 +76,25 @@ const App = () => {
   if (res.isSuccess) {
     h.push(res.data);
   }
-  let j = 0;
   for (let i in h[0]) {
-    // console.log(j);
-    if (h[0][i].depth == 4 && h[0][i].maps[12]) {
+    if (
+      i != 7007 &&
+      h[0][i].depth == 4 &&
+      h[0][i].maps[12] &&
+      i != 7008 &&
+      h[0][i].depth == 4 &&
+      h[0][i].maps[12]
+    ) {
       item_depth_4.push({
         img: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${i}.png`,
         depth: `${h[0][i].depth}`,
       });
-      // console.log(h[0][i]);
-    } else if (h[0][i].depth == 3 && h[0][i].maps[12]) {
+    } else if (
+      h[0][i].depth == 3 &&
+      h[0][i].maps[12] &&
+      !h[0][i]["into"] &&
+      i != 3001
+    ) {
       item_depth_3.push({
         img: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${i}.png`,
         depth: `${h[0][i].depth}`,
