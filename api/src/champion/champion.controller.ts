@@ -9,7 +9,6 @@ import {
 } from '@nestjs/common';
 import { ChampionService } from './champion.service';
 import { CreateChampionDto } from './dto/create-champion.dto';
-
 @Controller('champion')
 export class ChampionController {
   constructor(private readonly championService: ChampionService) {}
@@ -20,8 +19,8 @@ export class ChampionController {
   }
 
   @Get('/1')
-  findAll1() {
-    return this.championService.findAll1();
+  async findAll1() {
+   return this.championService.findAll1()
   }
   @Delete('/1')
   remove1() {

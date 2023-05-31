@@ -6,10 +6,25 @@ import {
   GET_CHAMPION_FROM_DATABASE_1,
   GET_CHAMPION_FROM_DATABASE_2,
 } from "../../constant/queryKey";
-const postChampion1 = async ({ champion, img }) => {
+const postChampion1 = async ({
+  champion,
+  img,
+  item_1,
+  item_2,
+  item_3,
+  item_4,
+  item_5,
+  item_6,
+}) => {
   const { data } = await axios.post(`http://localhost:5000/champion/1`, {
     champion,
     img,
+    item_1,
+    item_2,
+    item_3,
+    item_4,
+    item_5,
+    item_6,
   });
   return data;
 };
@@ -24,10 +39,25 @@ const useCreateChampion1 = () => {
     },
   });
 };
-const postChampion2 = async ({ champion, img }) => {
+const postChampion2 = async ({
+  champion,
+  img,
+  item_1,
+  item_2,
+  item_3,
+  item_4,
+  item_5,
+  item_6,
+}) => {
   const { data } = await axios.post(`http://localhost:5000/champion/2`, {
     champion,
     img,
+    item_1,
+    item_2,
+    item_3,
+    item_4,
+    item_5,
+    item_6,
   });
   return data;
 };
