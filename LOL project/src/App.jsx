@@ -90,10 +90,11 @@ const App = () => {
         depth: `${h[0][i].depth}`,
       });
     } else if (
+      i != 3031 &&
+      i != 7031 &&
       h[0][i].depth == 3 &&
       h[0][i].maps[12] &&
-      !h[0][i]["into"] &&
-      i != 3001
+      !h[0][i]["into"]
     ) {
       item_depth_3.push({
         img: `https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${i}.png`,
@@ -101,6 +102,7 @@ const App = () => {
       });
     }
   }
+  console.log(item_depth_3);
   // const h = [];
   // if (res.isLoading) {
   //   return <div>...loading</div>;
